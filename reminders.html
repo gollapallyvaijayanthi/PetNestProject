@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Reminders | PetNest</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="app-header">
+  <a class="logo" href="dashboard.html"><i class='bx bxs-dog'></i> PetNest</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="pet-profile.html">Pet Profile</a>
+    <a href="health.html">Wellness</a>
+    <a href="vaccinations.html">Vaccines</a>
+    <a href="reminders.html">Reminders</a>
+    <a href="timeline.html">Timeline</a>
+  </nav>
+  <button class="btn btn-small" onclick="logout()">Logout</button>
+</header>
+
+<main class="app-main">
+  <div class="page-title">
+    <div>
+      <span class="eyebrow">CARE PLANNER</span>
+      <h1>Smart Reminders</h1>
+      <p>PetNest can alert you about upcoming and overdue care tasks.</p>
+    </div>
+    <button class="btn" type="button" onclick="requestNotificationPermission()">
+      <i class='bx bx-bell'></i> Enable Notifications
+    </button>
+  </div>
+
+  <div id="notification-status" class="notification-status"></div>
+  <div id="overdue-alerts" class="alert-stack"></div>
+
+  <div class="dashboard-grid">
+    <form class="form-card" onsubmit="event.preventDefault();saveReminder();">
+      <h2>Create reminder</h2>
+
+      <label>
+        Reminder title
+        <input id="reminder-title" required placeholder="e.g. Grooming appointment">
+      </label>
+
+      <div class="form-grid">
+        <label>
+          Type
+          <select id="reminder-type">
+            <option>Vet Visit</option>
+            <option>Vaccination</option>
+            <option>Grooming</option>
+            <option>Dental Care</option>
+            <option>Medicine</option>
+            <option>Food Reorder</option>
+            <option>Wellness Check</option>
+            <option>Other</option>
+          </select>
+        </label>
+
+        <label>
+          Date
+          <input id="reminder-date" type="date" required>
+        </label>
+      </div>
+
+      <div class="form-grid">
+        <label>
+          Time
+          <input id="reminder-time" type="time">
+        </label>
+
+        <label>
+          Remind me
+          <select id="reminder-timing">
+            <option value="0">On the day</option>
+            <option value="1">1 day before</option>
+            <option value="3">3 days before</option>
+            <option value="7">1 week before</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Notes
+        <textarea id="reminder-notes" rows="4" placeholder="Optional details"></textarea>
+      </label>
+
+      <button class="btn full" type="submit">
+        <i class='bx bx-plus'></i> Add Reminder
+      </button>
+      <p id="reminder-message" class="form-message"></p>
+    </form>
+
+    <article class="dashboard-card">
+      <div class="card-head">
+        <h2>Automatic care suggestions</h2>
+        <span class="tag">Smart suggestions</span>
+      </div>
+      <div id="reminder-care-suggestions" class="care-suggestions"></div>
+      <div class="info-banner small">
+        <i class='bx bx-info-circle'></i>
+        <span>Suggestions are based on information entered into PetNest. They are reminders for organization, not medical advice.</span>
+      </div>
+    </article>
+  </div>
+
+  <section class="dashboard-card">
+    <div class="card-head">
+      <div>
+        <h2>Reminder list</h2>
+        <p class="muted">Upcoming reminders, completed tasks and overdue items.</p>
+      </div>
+      <div>
+        <button class="text-btn" onclick="filterReminders('all')">All</button>
+        <button class="text-btn" onclick="filterReminders('pending')">Pending</button>
+        <button class="text-btn" onclick="filterReminders('overdue')">Overdue</button>
+        <button class="text-btn" onclick="filterReminders('completed')">Completed</button>
+      </div>
+    </div>
+    <div id="reminder-list" class="record-list"></div>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Dashboard | PetNest</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="app-header">
+  <a class="logo" href="dashboard.html"><i class='bx bxs-dog'></i> PetNest</a>
+  <nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="pet-profile.html">Pet Profile</a>
+    <a href="health.html">Wellness</a>
+    <a href="vaccinations.html">Vaccines</a>
+    <a href="reminders.html">Reminders</a>
+    <a href="timeline.html">Timeline</a>
+  </nav>
+  <button class="btn btn-small" onclick="logout()">Logout</button>
+</header>
+
+<main class="app-main">
+  <div class="page-title">
+    <div>
+      <span class="eyebrow">PET WELLNESS HUB</span>
+      <h1>Hi, <span id="welcome-name">Pet Parent</span> 👋</h1>
+      <p>Your pet's important care information at a glance.</p>
+    </div>
+    <div class="page-title-actions">
+      <button class="btn btn-light" onclick="requestNotificationPermission()">
+        <i class='bx bx-bell'></i> Notifications
+      </button>
+      <a href="pet-profile.html" class="btn">Edit Pet Profile</a>
+    </div>
+  </div>
+
+  <div id="dashboard-notification-status" class="notification-status"></div>
+  <div id="dashboard-overdue-alerts" class="alert-stack"></div>
+
+  <section class="pet-summary">
+    <div class="pet-avatar"><i class='bx bxs-dog'></i></div>
+    <div>
+      <h2 id="dashboard-pet-name">Your Pet</h2>
+      <p id="dashboard-pet-breed">Add a pet profile to begin.</p>
+      <div class="mini-stats">
+        <span>Age <b id="dashboard-pet-age">—</b></span>
+        <span>Weight <b id="dashboard-pet-weight">—</b></span>
+      </div>
+    </div>
+  </section>
+
+  <div class="stats-grid">
+    <div class="stat-card"><i class='bx bx-line-chart'></i><span>Wellness records</span><strong id="health-count">0</strong></div>
+    <div class="stat-card"><i class='bx bx-injection'></i><span>Vaccinations</span><strong id="vaccine-count">0</strong></div>
+    <div class="stat-card"><i class='bx bx-bell'></i><span>Active reminders</span><strong id="reminder-count">0</strong></div>
+    <div class="stat-card"><i class='bx bx-time-five'></i><span>Timeline events</span><strong id="timeline-count">0</strong></div>
+  </div>
+
+  <section class="dashboard-grid">
+    <article class="dashboard-card">
+      <div class="card-head">
+        <h2>Upcoming care</h2>
+        <a href="reminders.html">Manage</a>
+      </div>
+      <div id="upcoming-reminders" class="stack-list"></div>
+    </article>
+
+    <article class="dashboard-card">
+      <div class="card-head">
+        <h2>Wellness snapshot</h2>
+        <a href="health.html">Open tracker</a>
+      </div>
+      <div id="dashboard-wellness" class="snapshot-grid"></div>
+    </article>
+  </section>
+
+  <section class="dashboard-grid">
+    <article class="dashboard-card">
+      <div class="card-head">
+        <h2>Automatic care suggestions</h2>
+        <span class="tag">Personalized</span>
+      </div>
+      <div id="care-checklist" class="care-suggestions"></div>
+    </article>
+
+    <article class="dashboard-card">
+      <div class="card-head">
+        <h2>Wellness analyzer</h2>
+        <span class="tag">Monitor, don't diagnose</span>
+      </div>
+      <div id="analyzer-result" class="analyzer-result">
+        <p>Add at least two wellness records to generate a trend review.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="quick-links">
+    <a href="health.html"><i class='bx bx-plus-medical'></i><span>Log wellness</span></a>
+    <a href="vaccinations.html"><i class='bx bx-injection'></i><span>Add vaccine</span></a>
+    <a href="reminders.html"><i class='bx bx-bell-plus'></i><span>Create reminder</span></a>
+    <a href="timeline.html"><i class='bx bx-history'></i><span>Add event</span></a>
+  </section>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

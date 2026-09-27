@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PetNest | Smart Pet Care</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html"><i class='bx bxs-dog'></i> PetNest</a>
+  <button class="menu-toggle" onclick="toggleMenu()"><i class='bx bx-menu'></i></button>
+  <nav id="main-nav">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#products">Shop</a>
+    <a href="dashboard.html">My Pet</a><a href="health.html">Wellness</a><a href="#about">About</a>
+  </nav>
+  <div class="header-actions">
+    <button class="cart-btn" onclick="openCart()" aria-label="Open shopping cart">
+      <i class='bx bx-cart'></i><span id="cart-count">0</span>
+    </button>
+    <a href="login.html" class="btn btn-outline">Login</a>
+    <a href="signup.html" class="btn">Sign Up</a>
+  </div>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">DIGITAL PET CARE SYSTEM</span>
+    <h1>Everything your pet needs, in one smart place.</h1>
+    <p>Track wellness, vaccinations, reminders, care history and shopping recommendations from one simple dashboard.</p>
+    <div class="hero-buttons">
+      <a href="dashboard.html" class="btn">Open Pet Dashboard</a>
+      <a href="#services" class="btn btn-light">Explore Features</a>
+    </div>
+    <div class="hero-stats">
+      <span><b>7+</b> care modules</span><span><b>Local</b> browser storage</span><span><b>24/7</b> access</span>
+    </div>
+  </div>
+  <div class="hero-card">
+    <i class='bx bxs-heart-circle'></i>
+    <h3>Smart Wellness</h3>
+    <p>See weight, activity, appetite, hydration and observations together instead of keeping separate notes.</p>
+    <a href="health.html">Track wellness →</a>
+  </div>
+</section>
+
+<section id="services" class="section">
+  <div class="section-heading"><span class="eyebrow">WHAT PETNEST ADDS</span><h2>More than a simple pet shop</h2><p>Turn everyday pet-care tasks into a single digital record.</p></div>
+  <div class="feature-grid">
+    <article class="feature-card"><i class='bx bxs-id-card'></i><h3>Pet Profile</h3><p>Store breed, age, weight, activity level and preferences.</p><a href="pet-profile.html">Manage profile</a></article>
+    <article class="feature-card"><i class='bx bx-line-chart'></i><h3>Wellness Trends</h3><p>Record observations and compare weight, appetite, water and activity over time.</p><a href="health.html">Open tracker</a></article>
+    <article class="feature-card"><i class='bx bx-injection'></i><h3>Vaccination Vault</h3><p>Keep vaccine dates, next due dates and notes in one searchable record.</p><a href="vaccinations.html">View vaccines</a></article>
+    <article class="feature-card"><i class='bx bx-bell'></i><h3>Smart Reminders</h3><p>Track grooming, vet visits, medicine, vaccines and product reorders.</p><a href="reminders.html">Manage reminders</a></article>
+    <article class="feature-card"><i class='bx bx-time-five'></i><h3>Care Timeline</h3><p>Build a chronological history of important pet-care events.</p><a href="timeline.html">View timeline</a></article>
+    <article class="feature-card"><i class='bx bx-bulb'></i><h3>Wellness Analyzer</h3><p>Review owner-entered trends and highlight changes worth monitoring. It is not a diagnosis tool.</p><a href="health.html">Analyze trends</a></article>
+  </div>
+</section>
+
+<section id="products" class="section soft">
+  <div class="section-heading"><span class="eyebrow">PET SHOP</span><h2>Care essentials</h2><p>Products can be added to the local shopping cart and matched with pet preferences.</p></div>
+  <div class="product-grid">
+    <article class="product-card"><img src="img/dog-food.jpg" alt="Dog food"><h3>Premium Dog Food</h3><p>Everyday nutrition</p><strong>₹899</strong><button class="btn" onclick="addToCart('Premium Dog Food',899,'img/dog-food.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/cat-food.jpg" alt="Cat food"><h3>Premium Cat Food</h3><p>Balanced daily food</p><strong>₹799</strong><button class="btn" onclick="addToCart('Premium Cat Food',799,'img/cat-food.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/dog-toy.jpg" alt="Dog toy"><h3>Interactive Dog Toy</h3><p>Activity & enrichment</p><strong>₹399</strong><button class="btn" onclick="addToCart('Interactive Dog Toy',399,'img/dog-toy.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/cat-toy.jpg" alt="Cat toy"><h3>Interactive Cat Toy</h3><p>Play & stimulation</p><strong>₹349</strong><button class="btn" onclick="addToCart('Interactive Cat Toy',349,'img/cat-toy.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/pet-bed.jpg" alt="Pet bed"><h3>Comfort Pet Bed</h3><p>Rest & recovery</p><strong>₹999</strong><button class="btn" onclick="addToCart('Comfort Pet Bed',999,'img/pet-bed.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/collar.jpg" alt="Pet collar"><h3>Smart Collar</h3><p>Daily comfort</p><strong>₹499</strong><button class="btn" onclick="addToCart('Smart Collar',499,'img/collar.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/pet-treats.jpg" alt="Pet treats"><h3>Healthy Pet Treats</h3><p>Training rewards</p><strong>₹299</strong><button class="btn" onclick="addToCart('Healthy Pet Treats',299,'img/pet-treats.jpg')">Add to Cart</button></article>
+    <article class="product-card"><img src="img/bird-food.jpg" alt="Bird food"><h3>Bird Food Mix</h3><p>Daily bird nutrition</p><strong>₹249</strong><button class="btn" onclick="addToCart('Bird Food Mix',249,'img/bird-food.jpg')">Add to Cart</button></article>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="about-box"><div><span class="eyebrow">PROJECT PURPOSE</span><h2>One digital record instead of scattered notes.</h2></div><p>PetNest is a frontend-only demonstration system. Information is stored in the browser with localStorage, so users can practice managing a pet profile, wellness history, vaccinations, reminders, timeline and shopping cart without a backend.</p></div>
+</section>
+
+<section class="newsletter section">
+  <div><span class="eyebrow">PET CARE UPDATES</span><h2>Stay connected with PetNest</h2><p>Save a newsletter subscription locally for the project demonstration.</p></div>
+  <form onsubmit="subscribeNewsletter(event)"><input id="newsletter-email" type="email" placeholder="Your email address" required><button class="btn" type="submit">Subscribe</button></form>
+</section>
+</main>
+
+<footer><div class="footer-grid"><div><a class="logo" href="index.html"><i class='bx bxs-dog'></i> PetNest</a><p>Digital Pet Care System</p></div><div><h4>Care</h4><a href="dashboard.html">Dashboard</a><a href="pet-profile.html">Pet Profile</a><a href="health.html">Wellness</a></div><div><h4>Records</h4><a href="vaccinations.html">Vaccinations</a><a href="reminders.html">Reminders</a><a href="timeline.html">Timeline</a></div></div><p class="copyright">© 2026 PetNest • Frontend project demonstration</p></footer>
+
+<div id="cart-overlay" class="cart-overlay" onclick="closeCart()"></div>
+<aside id="cart-sidebar" class="cart-sidebar">
+  <div class="cart-head"><h2>Your Cart</h2><button onclick="closeCart()"><i class='bx bx-x'></i></button></div>
+  <div id="cart-items"></div><div class="cart-total"><span>Total</span><strong id="cart-total">₹0</strong></div>
+  <button class="btn full" onclick="checkout()">Checkout</button>
+</aside>
+<script src="script.js"></script>
+</body>
+</html>
